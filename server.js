@@ -8,8 +8,7 @@ const server = http.createServer(app);
 
 app.use(cors({
   //Allow my frontend, http://localhost:3000 for localhost
-  //origin: 'https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com', 
-  origin: 'http://localhost:3000', 
+  origin: 'https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com', 
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
@@ -17,8 +16,7 @@ app.use(cors({
 const io = socketIo(server, {
   cors: {
     //Allow my frontend, http://localhost:3000 for localhost
-   // origin: 'https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com', 
-    origin: 'http://localhost:3000', 
+    origin: 'https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com', 
     methods: ['GET', 'POST']
   }
 });
