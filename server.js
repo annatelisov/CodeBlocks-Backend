@@ -24,12 +24,10 @@ const io = socketIo(server, {
 app.use(express.json());
 
 // MongoDB connection
-//'mongodb://127.0.0.1:27017/codeblocks'
   mongoose.connect('mongodb+srv://annatelisov:A311016o@codeblocks-cluster.ovvx9.mongodb.net/codeblocks?retryWrites=true&w=majority', {})  
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// CodeBlock model
 //const CodeBlock = require('./models/CodeBlock');
 
 // API routes
@@ -41,11 +39,11 @@ var role;
 // Socket.IO for real-time code updates
 io.on('connection', (socket) => {
   socket.on('joinBlock', (blockId) => {
-    //Check if someone already inside this codeblock
+    //Check if someone already inside this room(codeblock)
     const room = io.sockets.adapter.rooms.get(blockId);
     //if not initialize 0 people
     peoples = room ? room.size : 0;
-    //if this is the first person this in the mentor, if there is already people inside do this is a student
+    //if this is the first person this is the mentor, if there is already people inside do this is a student
     if (peoples === 0) {
         role = 'mentor';
     } else {
@@ -56,9 +54,11 @@ io.on('connection', (socket) => {
 
     //join person to the room
     socket.join(blockId);
-    //update count that 1 more person is in
+    //update count that 1 more student is in
     peoples = peoples + 1;
-    io.to(blockId).emit('studentsCount', peoples);
+    if(role === 'student'){
+      io.to(blockId).emit('studentsCount', peoples);
+    }
 });
 
   socket.on('codeChange', ({ blockId, code }) => {
@@ -67,7 +67,7 @@ io.on('connection', (socket) => {
 
   socket.on('leaveBlock', (blockId) => {
     console.log('Someone disconnected');
-    //update count that 1 less person is in
+    //update count that 1 less student is inside
     peoples = peoples - 1;
     io.to(blockId).emit('studentsCount', peoples);
   });
