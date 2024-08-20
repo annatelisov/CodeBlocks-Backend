@@ -7,16 +7,16 @@ const app = express();
 const server = http.createServer(app);
 
 app.use(cors({
-  //Allow my frontend
-  origin: 'http://localhost:3000', 
+  //Allow my frontend, http://localhost:3000 for localhost
+  origin: 'https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com', 
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
 
 const io = socketIo(server, {
   cors: {
-    //Allow my frontend
-    origin: 'http://localhost:3000', 
+    //Allow my frontend, http://localhost:3000 for localhost
+    origin: 'https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com', 
     methods: ['GET', 'POST']
   }
 });
