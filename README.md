@@ -31,7 +31,7 @@ This repository contains the backend code for the Code Blocks App, an online cod
 
 ### Runing app localy
 
-- node serber.js
+- node server.js
 - Runing localy at http://localhost:5000
 
 ### Deployment 
