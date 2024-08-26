@@ -15,7 +15,7 @@ This repository contains the backend code for the Code Blocks App, an online cod
 - **Socket.IO**: For real-time communication.
 - **Mongoose**: MongoDB object modeling tool.
 - **MongoDB Atlas**: Cloud database service.
-- **Heroku**: Deployment platform for the live API.
+- **Railway**: Deployment platform for the live API.
 
 ## API Endpoints
 
@@ -36,9 +36,9 @@ This repository contains the backend code for the Code Blocks App, an online cod
 
 ### Deployment 
 
-- Deploy at Heroku platform.
-- App's Frontend url: https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com/
-- App's Backend url: https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/
+- Deploy at Vercel and Railway platform.
+- App's Frontend url: https://code-blocks-frontend-nine.vercel.app/
+- App's Backend url: https://web-production-abd4.up.railway.app/
 
   ### DataBase 
 
