@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 app.use(cors({
   //Allow my frontend, http://localhost:3000 for localhost
-  origin: 'https://code-blocks-frontend-kwibmoa71-anna-eidas-projects.vercel.app/', 
+  origin: 'https://code-blocks-frontend-kwibmoa71-anna-eidas-projects.vercel.app', 
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
